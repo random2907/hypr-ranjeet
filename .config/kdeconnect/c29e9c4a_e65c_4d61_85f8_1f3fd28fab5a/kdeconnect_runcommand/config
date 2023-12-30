@@ -1,0 +1,2 @@
+[General]
+commands="@ByteArray({\"_169a678d_1354_4ee2_bbb1_5fd0a2381bf2_\":{\"command\":\"swaylock -S --grace 0\",\"name\":\"screen lock\"},\"_7e4352ec_7d2a_4450_b291_2731150a4270_\":{\"command\":\"systemctl suspend\",\"name\":\"suspend\"}})"

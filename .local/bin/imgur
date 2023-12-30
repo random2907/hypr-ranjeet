@@ -1,0 +1,53 @@
+#!/bin/bash
+
+CLIENT_ID="d4ae51b77b2867d"
+CLIENT_SECRET="35a4a0fe04b57fdf934deef44126c4261b6afda4"
+ACCESS_TOKEN="db5454c4643d3e2587611b6743d0f494f678095b"  # Obtain this using the authorization code flow
+
+# Function to get OAuth 2.0 access token
+get_access_token() {
+    AUTH_URL="https://api.imgur.com/oauth2/token"
+    response=$(curl -s --request POST \
+        --url "$AUTH_URL" \
+        --data "client_id=$CLIENT_ID" \
+        --data "client_secret=$CLIENT_SECRET" \
+        --data "grant_type=authorization_code" \
+        --data "code=$1")
+
+    access_token=$(echo "$response" | jq -r '.access_token')
+    echo "$access_token"
+}
+
+# Function to upload an image to Imgur
+upload_image() {
+    IMGUR_UPLOAD_URL="https://api.imgur.com/3/image"
+    response=$(curl -s --request POST \
+        --url "$IMGUR_UPLOAD_URL" \
+        --header "Authorization: Bearer $ACCESS_TOKEN" \
+        --form "image=@$1")
+
+    # Check if the upload was successful
+    if [ "$(echo "$response" | jq -r '.success')" == "true" ]; then
+        image_url=$(echo "$response" | jq -r '.data.link')
+        deletehash=$(echo "$response" | jq -r '.data.deletehash')
+
+        echo "Image uploaded successfully."
+        echo "Image URL: $image_url"
+        echo "Delete URL: https://imgur.com/delete/$deletehash"
+    else
+        echo "Error uploading image: $(echo "$response" | jq -r '.data.error')"
+    fi
+}
+
+if [ -z "$ACCESS_TOKEN" ]; then
+    echo "Access token is missing. Please obtain an access token using the authorization code flow."
+    exit 1
+fi
+
+if [ -n "$1" ]; then
+    upload_image "$1"
+else
+    echo "Error: Image path is required."
+    exit 1
+fi
+

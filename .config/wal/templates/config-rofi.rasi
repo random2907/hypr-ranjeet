@@ -1,0 +1,10 @@
+// Example snippet.
+* {{
+    active-background: {color2};
+    active-foreground: {foreground};
+    normal-background: {background};
+    normal-foreground: {foreground};
+    urgent-background: {color0};
+    urgent-foreground: {foreground};
+    // ...
+}}
