@@ -35,7 +35,7 @@ yay -S qt5ct qt6ct ttf-nerd-fonts-symbols-mono papirus-icon-theme breeze-icons b
 
 ### Optional Packages
 ```bash
-yay -S mpv wf-recorder obs-studio dolphin swaylock swayidle slurp imagemagick swappy
+yay -S mpv wf-recorder obs-studio dolphin swaylock-effects-git swayidle slurp imagemagick swappy
 ```
 
 ### Dotfiles Installation
