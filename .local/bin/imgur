@@ -1,8 +1,8 @@
 #!/bin/bash
 
-CLIENT_ID="d4ae51b77b2867d"
-CLIENT_SECRET="35a4a0fe04b57fdf934deef44126c4261b6afda4"
-ACCESS_TOKEN="db5454c4643d3e2587611b6743d0f494f678095b"  # Obtain this using the authorization code flow
+CLIENT_ID=""
+CLIENT_SECRET=""
+ACCESS_TOKEN=""  # Obtain this using the authorization code flow
 
 # Function to get OAuth 2.0 access token
 get_access_token() {
