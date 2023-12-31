@@ -10,7 +10,7 @@ makepkg -si
 ```
 - required
 {
-acpi
+*acpi
 alacrtty
 python-pywal
 neofetch
