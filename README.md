@@ -2,6 +2,13 @@
 
 Hypr Ranjeet is a personalized Arch Linux setup with a focus on simplicity and aesthetics.
 
+# Show
+
+
+https://github.com/random2907/hypr-ranjeet/assets/81547183/3c2a0c04-8766-40ab-9400-eb8dca6742f2
+
+
+
 ## Installation
 
 ### AUR Helper
