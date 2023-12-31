@@ -39,6 +39,7 @@ yay -S mpv wf-recorder obs-studio dolphin swaylock-effects-git swayidle slurp im
 ```
 
 ### Dotfiles Installation
+(blur is disabled but you can enable if you want in hyprland.conf)
 ```bash
 git clone https://github.com/random2907/hypr-ranjeet.git
 cd hypr-ranjeet
