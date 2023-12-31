@@ -25,6 +25,11 @@ yay -S acpi alacritty swww python-pywal rofi-lbonn-wayland-git neofetch hyprland
 
 ### Sound Packages
 ```bash
+yay -S pamixer pavucontrol playerctl cava-git pipewire pipewire-alsa pipewire-jack pipewire-pulse
+```
+
+### Network
+```bash
 yay -S network-manager-applet networkmanager blueman bluez bluez-utils
 ```
 
