@@ -38,7 +38,7 @@ yay -S qt5ct qt6ct ttf-nerd-fonts-symbols-mono papirus-icon-theme breeze-icons b
 yay -S mpv wf-recorder obs-studio dolphin swaylock swayidle slurp imagemagick swappy
 ```
 
-### Dotfiles
+### Dotfiles Installation
 ```bash
 git clone https://github.com/random2907/hypr-ranjeet.git
 cd hypr-ranjeet
