@@ -1,6 +1,6 @@
 # Hypr Ranjeet
 
-Hypr Ranjeet is a personalized Arch Linux setup with a focus on simplicity and aesthetics.
+Hypr Ranjeet is a dotfiles/config for hyprland
 
 # Show
 
