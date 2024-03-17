@@ -1,0 +1,39 @@
+#!/bin/bash
+
+CLIENT_ID=""
+CLIENT_SECRET=""
+ACCESS_TOKEN=""
+
+upload_image() {
+    IMGUR_UPLOAD_URL="https://api.imgur.com/3/image"
+    response=$(curl -s --request POST \
+        --url "$IMGUR_UPLOAD_URL" \
+        --header "Authorization: Bearer $ACCESS_TOKEN" \
+        --form "image=@$1")
+
+    # Check if the upload was successful
+    if [ "$(echo "$response" | jq -r '.success')" == "true" ]; then
+        image_url=$(echo "$response" | jq -r '.data.link')
+        deletehash=$(echo "$response" | jq -r '.data.deletehash')
+
+        echo "Image uploaded successfully."
+        echo "Image URL: $image_url"
+        echo "Delete URL: https://imgur.com/delete/$deletehash"
+    else
+        echo "Error uploading image: $(echo "$response" | jq -r '.data.error')"
+    fi
+}
+
+if [ -z "$ACCESS_TOKEN" ]; then
+    get_access_token
+    echo "Access token is missing. Please obtain an access token using the authorization code flow."
+    exit 1
+fi
+
+if [ -n "$1" ]; then
+    upload_image "$1"
+else
+    echo "Error: Image path is required."
+    exit 1
+fi
+
