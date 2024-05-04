@@ -1,40 +1,50 @@
 @import "/home/ranjeet/.cache/wal/colors-custom-gtk3.css";
 
 * {
-    border: none;
-    font-family: Iosevka, FontAwesome, Noto Sans CJK;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: normal;
-    font-weight: bold;
+	border: none;
+	font-family: Iosevka, FontAwesome, Noto Sans CJK;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: bold;
 }
 
 window#waybar {
-    color: @color12;
-    background: transparent;
+	color: @color12;
+	background: transparent;
 }
 
+tooltip {
+	background: @background;
+	color: @color11;
+	border: solid 1px @color11;
+}
+
+#tray menu {
+	background: @background;
+	color: @color11;
+	border: solid 1px @color11;
+}
 
 #workspaces {
 	background: @background;
 	margin: 5px 5px 5px 5px;
-  padding: 0px 5px 0px 5px;
+	padding: 0px 5px 0px 5px;
 	border-radius: 16px;
-  font-weight: normal;
-  font-style: normal;
+	font-weight: normal;
+	font-style: normal;
 }
 #workspaces button {
-    padding: 0px 5px;
-    box-shadow: none;
-    border-radius: 16px;
-    color: @color11;
+	padding: 0px 5px;
+	box-shadow: none;
+	border-radius: 16px;
+	color: @color11;
 
 }
 
 #workspaces button.active {
-    color: @color11;
-    background-color: transparent;
-    border-radius: 16px;
+	color: @color11;
+	background-color: transparent;
+	border-radius: 16px;
 }
 
 #workspaces button:hover {
@@ -48,8 +58,8 @@ window#waybar {
 	background-color: @background;
 	padding: 5px 5px 5px 5px;
 	margin: 5px 5px 5px 5px;
-  	border-radius: 8px;
-        border: solid 0px #f4d9e1;
+	border-radius: 8px;
+	border: solid 0px #f4d9e1;
 	color: @color11;
 }
 
@@ -68,168 +78,168 @@ window#waybar {
 }
 
 #tray {
-    border-radius: 16px;
-    /*border-right: solid 1px #282738;*/
+	border-radius: 16px;
+	/*border-right: solid 1px #282738;*/
 }
 
 #clock {
-    border-radius: 0px 0px 0px 24px;
-    padding-left: 13px;
-    padding-right: 15px;
-    margin-right: 0px;
-    margin-left: 10px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    font-weight: bold;
-    /*border-left: solid 1px #282738;*/
+	border-radius: 0px 0px 0px 24px;
+	padding-left: 13px;
+	padding-right: 15px;
+	margin-right: 0px;
+	margin-left: 10px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-weight: bold;
+	/*border-left: solid 1px #282738;*/
 }
 
 
 #battery {
-    color: #9ece6a;
-    /*color: #FABD2D;*/
-    border-radius: 16px;
-    margin: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
-    padding: 0px 10px 0px 10px;
-    font-weight: bold;
+	color: #9ece6a;
+	/*color: #FABD2D;*/
+	border-radius: 16px;
+	margin: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 0px 10px 0px 10px;
+	font-weight: bold;
 
 }
 
 #battery.charging {
-    color: #9ece6a;
+	color: #9ece6a;
 }
 
 #battery.warning:not(.charging) {
-    color: #e2f71e;
+	color: #e2f71e;
 }
 #battery.critical {
-    color: #f71e1e;
+	color: #f71e1e;
 }
 
 #backlight {
-    border-radius: 8px;
-    margin-left: 0px;
+	border-radius: 8px;
+	margin-left: 0px;
 }
 
 #network {
-    border-radius: 8px;
-    margin-right: 5px;
+	border-radius: 8px;
+	margin-right: 5px;
 }
 
 #pulseaudio {
-    border-radius: 8px;
-    margin-left: 0px;
+	border-radius: 8px;
+	margin-left: 0px;
 }
 
 #pulseaudio.muted {
-    background: transparent;
-    border-radius: 8px;
-    margin-left: 0px;
+	background: transparent;
+	border-radius: 8px;
+	margin-left: 0px;
 }
 
 #custom-randwall {
-    border-radius: 8px;
-    margin-right: 0px;
+	border-radius: 8px;
+	margin-right: 0px;
 }
 
 #custom-launcher {
-    border-radius: 0px 0px 24px 0px;
-    margin: 0px 0px 0px 0px;
-    padding: 0 20px 0 13px;
-    /*border-right: solid 1px #282738;*/
-    font-size: 20px;
+	border-radius: 0px 0px 24px 0px;
+	margin: 0px 0px 0px 0px;
+	padding: 0 20px 0 13px;
+	/*border-right: solid 1px #282738;*/
+	font-size: 20px;
 }
 
 #custom-launcher button:hover {
-    color: transparent;
-    border-radius: 8px;
-    margin-right: -5px;
-    margin-left: 10px;
+	color: transparent;
+	border-radius: 8px;
+	margin-right: -5px;
+	margin-left: 10px;
 }
 
 #custom-playerctl {
 	background: @background;
 	padding-left: 15px;
-  padding-right: 14px;
+	padding-right: 14px;
 	border-radius: 16px;
-  /*border-left: solid 1px #282738;*/
-  /*border-right: solid 1px #282738;*/
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 0px;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 16px;
+	/*border-left: solid 1px #282738;*/
+	/*border-right: solid 1px #282738;*/
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 0px;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 16px;
 }
 
 #custom-playerlabel {
-    background: transparent;
-    padding-left: 10px;
-    padding-right: 15px;
-    border-radius: 16px;
-    /*border-left: solid 1px #282738;*/
-    /*border-right: solid 1px #282738;*/
-    margin-top: 5px;
-    margin-bottom: 5px;
-    font-weight: normal;
-    font-style: normal;
+	background: transparent;
+	padding-left: 10px;
+	padding-right: 15px;
+	border-radius: 16px;
+	/*border-left: solid 1px #282738;*/
+	/*border-right: solid 1px #282738;*/
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-weight: normal;
+	font-style: normal;
 }
 
 #window {
-    background: #282828;
-    padding-left: 15px;
-    padding-right: 15px;
-    border-radius: 16px;
-    /*border-left: solid 1px #282738;*/
-    /*border-right: solid 1px #282738;*/
-    margin-top: 5px;
-    margin-bottom: 5px;
-    font-weight: normal;
-    font-style: normal;
+	background: #282828;
+	padding-left: 15px;
+	padding-right: 15px;
+	border-radius: 16px;
+	/*border-left: solid 1px #282738;*/
+	/*border-right: solid 1px #282738;*/
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-weight: normal;
+	font-style: normal;
 }
 
 #custom-wf-recorder {
-    padding: 0 20px;
-    color: #e5809e;
+	padding: 0 20px;
+	color: #e5809e;
 }
 
 #cpu {
-    border-radius: 16px;
-    margin: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
-    padding: 0px 10px 0px 10px;
-    font-weight: bold;
+	border-radius: 16px;
+	margin: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 0px 10px 0px 10px;
+	font-weight: bold;
 }
 
 #memory {
-    /*color: #83A598;*/
-    border-radius: 16px;
-    margin: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
-    padding: 0px 10px 0px 10px;
-    font-weight: bold;
+	/*color: #83A598;*/
+	border-radius: 16px;
+	margin: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 0px 10px 0px 10px;
+	font-weight: bold;
 }
 
 #disk {
-    /*color: #8EC07C;*/
-    border-radius: 16px;
-    margin: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
-    padding: 0px 10px 0px 10px;
-    font-weight: bold;
+	/*color: #8EC07C;*/
+	border-radius: 16px;
+	margin: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 0px 10px 0px 10px;
+	font-weight: bold;
 }
 
 #custom-hyprpicker {
-    /*color: #8EC07C;*/
-    border-radius: 16px;
-    margin: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
-    padding: 0px 11px 0px 9px;
-    font-weight: bold;
+	/*color: #8EC07C;*/
+	border-radius: 16px;
+	margin: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 0px 11px 0px 9px;
+	font-weight: bold;
 }
