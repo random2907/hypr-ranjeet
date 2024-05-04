@@ -7,6 +7,12 @@
   font: "JetBrainsMono Bold 10";
 }
 
+configuration {
+  me-select-entry: "MousePrimary";
+  me-accept-entry: "!MousePrimary";
+}
+
+
 
 window {
   padding: 1em;
@@ -14,6 +20,7 @@ window {
   border:       5px;
   border-radius: 10px;
   background-color: @active-background;
+  
 
 }
 
@@ -60,6 +67,8 @@ element {
 }
 element,element-text,element-icon, button {
     cursor: pointer;
+    background-color: inherit;
+    text-color:       inherit;
 }
 
 inputbar {

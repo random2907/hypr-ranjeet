@@ -1,7 +1,3 @@
-[General]
-TerminalApplication=alacritty
-
-
 [ColorEffects:Disabled]
 Color=30, 30, 46
 ColorAmount=0.30000000000000004
@@ -36,7 +32,6 @@ ForegroundNormal=205, 214, 244
 ForegroundPositive=166, 227, 161
 ForegroundVisited=203, 166, 247
 
-
 [Colors:Complementary]
 BackgroundAlternate=17, 17, 27
 BackgroundNormal=24, 24, 37
@@ -50,7 +45,6 @@ ForegroundNeutral=249, 226, 175
 ForegroundNormal=205, 214, 244
 ForegroundPositive=166, 227, 161
 ForegroundVisited=203, 166, 247
-
 
 [Colors:Header]
 BackgroundAlternate=17, 17, 27
@@ -66,22 +60,19 @@ ForegroundNormal=205, 214, 244
 ForegroundPositive=166, 227, 161
 ForegroundVisited=203, 166, 247
 
-
 [Colors:Selection]
 BackgroundAlternate=245,194,231
 BackgroundNormal=245,194,231
 DecorationFocus=245,194,231
 DecorationHover=49, 50, 68
-ForegroundLink=245,194,231
-ForegroundInactive=24, 24, 37
 ForegroundActive=250, 179, 135
+ForegroundInactive=24, 24, 37
 ForegroundLink=245,194,231
 ForegroundNegative=243, 139, 168
 ForegroundNeutral=249, 226, 175
 ForegroundNormal=17, 17, 27
 ForegroundPositive=166, 227, 161
 ForegroundVisited=203, 166, 247
-
 
 [Colors:Tooltip]
 BackgroundAlternate=27,25,35
@@ -97,7 +88,6 @@ ForegroundNormal=205, 214, 244
 ForegroundPositive=166, 227, 161
 ForegroundVisited=203, 166, 247
 
-
 [Colors:View]
 BackgroundAlternate=24, 24, 37
 BackgroundNormal=30, 30, 46
@@ -111,7 +101,6 @@ ForegroundNeutral=249, 226, 175
 ForegroundNormal=205, 214, 244
 ForegroundPositive=166, 227, 161
 ForegroundVisited=203, 166, 247
-
 
 [Colors:Window]
 BackgroundAlternate=17, 17, 27
@@ -127,17 +116,20 @@ ForegroundNormal=205, 214, 244
 ForegroundPositive=166, 227, 161
 ForegroundVisited=203, 166, 247
 
-
 [General]
+BrowserApplication=angelfish
 ColorScheme=CatppuccinMochaPink
 Name=Catppuccin Mocha Pink
+TerminalApplication=alacritty
 accentActiveTitlebar=false
 shadeSortColumn=true
 
-
 [KDE]
+LookAndFeelPackage=org.kde.breeze.mobile
 contrast=4
 
+[PreviewSettings]
+MaximumRemoteSize=0
 
 [WM]
 activeBackground=30, 30, 46
@@ -146,4 +138,3 @@ activeForeground=205, 214, 244
 inactiveBackground=17, 17, 27
 inactiveBlend=166, 173, 200
 inactiveForeground=166, 173, 200
-

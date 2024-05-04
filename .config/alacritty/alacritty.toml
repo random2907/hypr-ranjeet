@@ -3,7 +3,7 @@ import = ["$HOME/.config/alacritty/alacritty.toml",
 ]
 
 [shell]
-program = "/bin/zsh"
+program = "/usr/bin/zsh"
 
 [window]
 opacity = 0.8
