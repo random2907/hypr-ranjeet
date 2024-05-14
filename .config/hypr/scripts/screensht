@@ -25,7 +25,7 @@ _FONT_='JetBrainsMonoNL-NFM-Bold'
 function check() {
     if [[ $? -eq 1 && ${PIPESTATUS[0]} -eq 1 ]]; then
         _end_job_=$(date +%s)
-        summary $_start_job_ $_end_job_ 'failed' && dunstify -u critical -t 3000 -a "Screenshot Tool" "Screensht" >> $_LOG_FILE_ 2>&1
+        summary "$_start_job_" "$_end_job_" 'failed' && dunstify -u critical -t 3000 -a "Screenshot Tool" "Screensht" >> "$_LOG_FILE_" 2>&1
         exit 1
     fi
 }
@@ -40,7 +40,7 @@ function check_dir() {
 }
 
 function get_latest_img() { 
-    _LATEST_IMAGE_=$(/bin/ls -th $_SCREENSHOT_DIR_ | grep -vE '.screensht.png$' | grep -E '.png$' | head -n 1)
+    _LATEST_IMAGE_=$(/bin/ls -th "$_SCREENSHOT_DIR_" | grep -vE '.screensht.png$' | grep -E '.png$' | head -n 1)
 
     if [[ $( echo "$_LATEST_IMAGE_" | wc -w ) -eq 0 ]]; then
         exit 1
@@ -55,24 +55,24 @@ function convert() {
     if [[ $_BORDER_SIZE_ -ge 3 ]]; then
         magick convert "$_LATEST_IMAGE_" \
             -format 'roundrectangle 1,1 %[fx:w+4],%[fx:h+4] '"$_ROUNDED_CORNER_"','"$_ROUNDED_CORNER_"''\
-            info: > $_SCREENSHOT_DIR_/_rounded_.mvg
+            info: > "$_SCREENSHOT_DIR_"/_rounded_.mvg
         check
 
         magick convert "$_LATEST_IMAGE_" -border $_BORDER_SIZE_ -alpha transparent \
             -background none -fill white -stroke none -strokewidth 0 \
-            -draw "@"$_SCREENSHOT_DIR_"/_rounded_.mvg" $_SCREENSHOT_DIR_/_rounded_mask_.png >> $_LOG_FILE_ 2>&1
+            -draw "@""$_SCREENSHOT_DIR_""/_rounded_.mvg" "$_SCREENSHOT_DIR_"/_rounded_mask_.png >> "$_LOG_FILE_" 2>&1
         check
 
         magick convert "$_LATEST_IMAGE_" -border $_BORDER_SIZE_ -alpha transparent \
             -background none -fill none -stroke $_FG_COLOR_ -strokewidth $_BORDER_SIZE_ \
-            -draw "@"$_SCREENSHOT_DIR_"/_rounded_.mvg" $_SCREENSHOT_DIR_/_rounded_overlay_.png >> $_LOG_FILE_ 2>&1
+            -draw "@""$_SCREENSHOT_DIR_""/_rounded_.mvg" "$_SCREENSHOT_DIR_"/_rounded_overlay_.png >> "$_LOG_FILE_" 2>&1
         check
 
         magick convert "$_LATEST_IMAGE_" -alpha set -bordercolor none -border $_BORDER_SIZE_  \
-            $_SCREENSHOT_DIR_/_rounded_mask_.png -compose DstIn -composite \
-            $_SCREENSHOT_DIR_/_rounded_overlay_.png -compose Over -composite \
-            "$_target_file_" >> $_LOG_FILE_ 2>&1 && \
-        rm -f $_SCREENSHOT_DIR_/_rounded_*
+            "$_SCREENSHOT_DIR_"/_rounded_mask_.png -compose DstIn -composite \
+            "$_SCREENSHOT_DIR_"/_rounded_overlay_.png -compose Over -composite \
+            "$_target_file_" >> "$_LOG_FILE_" 2>&1 && \
+        rm -f "$_SCREENSHOT_DIR_"/_rounded_*
         check
     else
         magick convert "$_LATEST_IMAGE_" \( +clone  -alpha extract -draw 'fill black polygon 0,0 0,'"$_ROUNDED_CORNER_"' '"$_ROUNDED_CORNER_"',0 fill white circle '"$_ROUNDED_CORNER_"','"$_ROUNDED_CORNER_"' '"$_ROUNDED_CORNER_"',0' \
@@ -102,7 +102,7 @@ function summary() {
     hours=$((_runtime_job_ / 3600)); minutes=$(( (_runtime_job_ % 3600) / 60 )); seconds=$(( (_runtime_job_ % 3600) % 60 ))
 
     if [[ $3 != "failed" ]]; then
-        wl-copy < "$_target_file_" >> $_LOG_FILE_ 2>&1
+        wl-copy < "$_target_file_" >> "$_LOG_FILE_" 2>&1
 
         message="${_notif_message_} Runtime: $hours hours, $minutes minutes, $seconds seconds"
         dunstify -i "$_target_file_" -t 10000 "Screenshot Tool" "$message" -a "Screenshot Tool"
@@ -112,22 +112,22 @@ function summary() {
 function main() {
     check_dir
 
-    rm -f $_LOG_FILE_
+    rm -f "$_LOG_FILE_"
     _start_job_=$(date +%s)
 
 	_screenshot_command_="$1"
 	_notif_message_="$2"
 
-    $_screenshot_command_ $_SCREENSHOT_DIR_\/$_start_job_.png> /dev/null 2>&1
+    $_screenshot_command_ "$_SCREENSHOT_DIR_"\/"$_start_job_".png> /dev/null 2>&1
     check
 
     get_latest_img
     convert
 
-	mv $_LATEST_IMAGE_ $_ORIGINAL_DIR_
+	mv "$_LATEST_IMAGE_" "$_ORIGINAL_DIR_"
     
     _end_job_=$(date +%s)
-    summary $_start_job_ $_end_job_
+    summary "$_start_job_" "$_end_job_"
 }
 
 # Check the args passed
