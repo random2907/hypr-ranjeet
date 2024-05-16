@@ -64,7 +64,6 @@ vim.keymap.set('n','<leader>qf',"<cmd>lua vim.lsp.buf.code_action()<cr>")
 vim.keymap.set('n','<leader>y','"+y')
 vim.keymap.set('v','<leader>y','"+y')
 vim.keymap.set('n','<leader>p','"+p')
-vim.keymap.set('i','<Tab>',"<C-n>")
 
 
 vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir"
