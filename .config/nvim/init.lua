@@ -1,6 +1,3 @@
-vim.g.mapleader = " "
-vim.cmd('set relativenumber')
-vim.keymap.set('n','<leader>f',"<cmd>Ex<cr>")
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -16,6 +13,9 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	"nvim-treesitter/nvim-treesitter",
+         "williamboman/mason.nvim",
+         "williamboman/mason-lspconfig.nvim",
+         "neovim/nvim-lspconfig",
 })
 
 require'nvim-treesitter.configs'.setup {
@@ -34,7 +34,48 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
+require("mason").setup()
+require("mason-lspconfig").setup_handlers {
+        function (server_name)
+                require("lspconfig")[server_name].setup {}
+        end,
+        ["lua_ls"] = function ()
+                local lspconfig = require("lspconfig")
+                lspconfig.lua_ls.setup {
+                        settings = {
+                                Lua = {
+                                        diagnostics = {
+                                                globals = { "vim" }
+                                        }
+                                }
+                        }
+                }
+        end,
+}
+
+
 vim.filetype.add({
-  pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+        pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
 })
 
+vim.g.mapleader = " "
+vim.keymap.set('n','<leader>f',"<cmd>Ex<cr>")
+vim.keymap.set('n','<leader>qf',"<cmd>lua vim.lsp.buf.code_action()<cr>")
+vim.keymap.set('n','<leader>y','"+y')
+vim.keymap.set('v','<leader>y','"+y')
+vim.keymap.set('n','<leader>p','"+p')
+vim.keymap.set('i','<Tab>',"<C-n>")
+
+
+vim.opt.undodir = os.getenv("HOME") .. "/.config/nvim/undodir"
+vim.opt.undofile = true
+vim.opt.expandtab = true
+vim.opt.smartindent = true
+vim.opt.relativenumber = true
+vim.opt.wrap = false
+vim.opt.hlsearch = false
+vim.opt.termguicolors = true
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
