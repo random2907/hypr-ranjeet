@@ -16,6 +16,7 @@ require("lazy").setup({
          "williamboman/mason.nvim",
          "williamboman/mason-lspconfig.nvim",
          "neovim/nvim-lspconfig",
+         { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...},
 })
 
 require'nvim-treesitter.configs'.setup {
@@ -76,5 +77,4 @@ vim.opt.hlsearch = false
 vim.opt.termguicolors = true
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+vim.cmd.colorscheme('gruvbox')
